@@ -20,12 +20,25 @@ public class LinkedList {
     }
 
     //insert to front of list
-    public void insert(int x){
+    public void insertFirst(int x){
         Node n = new Node(x);
         n.next = head;
         head = n;
     }
 
+    //insert to front of list
+    public void insertFirst(int x, Bicycle data){
+        Node n = new Node(x, data);
+        n.next = head;
+        head = n;
+    }
+
+    public void insertFirst(int x, Bicycle data, int counter){
+        Node n = new Node(x, data);
+        System.out.println("counter: " + counter);
+        n.next = head;
+        head = n;
+    }
     //clear list
     public void clear(){
         head = null;
@@ -46,7 +59,7 @@ public class LinkedList {
     public void print(){
         Node curr = head;
         while(curr != null){//traverse through list
-            System.out.print(curr.val + " ");
+            System.out.print(curr.val + " " + curr.data);
             curr = curr.next;
         }
         System.out.println();
@@ -113,8 +126,8 @@ public class LinkedList {
         return total;
     }
 
-    public void insertInOrder(int x){
-        Node n = new Node(x);
+    public void insertInOrder(int x, Bicycle bicycle){
+        Node n = new Node(x, bicycle);
         if(isEmpty()){//nothing in list
             head = n;
             n.next = null;
@@ -146,9 +159,12 @@ public class LinkedList {
         }
 
         if(curr.val < n.val){
+            int i = 0;
             while(curr.val < x && curr.next != null){//find where curr.val not < x
                 curr = curr.next;
                 prev = prev.next;
+                i++;
+                System.out.println("in While: " + i);
             }
 
             if(curr.val < x && curr.next == null){//insert last element
@@ -170,7 +186,7 @@ public class LinkedList {
         //user insertInOrder to sort the list
         Node curr = this.head;
         while(curr != null){
-            sort.insertInOrder(curr.val);
+            sort.insertInOrder(curr.val, curr.data);
             curr = curr.next;
         }
         sort.print();
