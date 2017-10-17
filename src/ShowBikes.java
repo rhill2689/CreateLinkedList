@@ -60,9 +60,15 @@ public class ShowBikes {
         String colorTest = "black";
 
         //find all bikes that match
-        LinkedList sortedList = linkedList.sortByAttr(gearTest, wheelTest, linkedList);
-        System.out.println("Sorted List size by gear, wheel: " + sortedList.size());
-        sortedList.print();
+        try{
+
+            LinkedList sortedList = linkedList.sortByAttr(gearTest, wheelTest, linkedList);
+            System.out.println("Sorted List size by gear, wheel: " + sortedList.size());
+            sortedList.print();
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
 
         LinkedList linkedList1 = linkedList.sortByAttr2(typeTestMountain, linkedList);
         System.out.println("Sorted List size by mountain bikes: " + linkedList1.size());
