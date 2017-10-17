@@ -54,13 +54,15 @@ public class ShowBikes {
         //create test bike
         int wheelTest = 54;
         int gearTest =  4;
+        int heightTest = 1;
         String typeTestMountain = "mountain"; //had to change from mountain_bike to mountain i think the _ is messing with the comparison
         String typeTestRace =   "race";  //race_bike
         String typeTestStreet = "street"; //street_bike
         String colorTest = "black";
+        String constructionMaterial = "steel";
 
         //find all bikes that match
-        try{
+        try {
 
             LinkedList sortedList = linkedList.sortByAttr(gearTest, wheelTest, linkedList);
             System.out.println("Sorted List size by gear, wheel: " + sortedList.size());
@@ -70,6 +72,74 @@ public class ShowBikes {
             System.out.println(e.toString());
         }
 
+        try {
+
+            LinkedList sortedList1 = linkedList.sortByAttribute1(typeTestMountain, linkedList);
+            System.out.println("Sorted List size by gear, wheel: " + sortedList1.size());
+            sortedList.print();
+
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+
+        try {
+
+            LinkedList sortedList2 = linkedList.sortByAttribute2(typeTestMountain, gearTest, linkedList);
+            System.out.println("Sorted List size by gear, wheel: " + sortedList2.size());
+            sortedList.print();
+
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+
+        try {
+
+            LinkedList sortedList3 = linkedList.sortByAttribute3(typeTestMountain, gearTest, wheelTest, linkedList);
+            System.out.println("Sorted List size by gear, wheel: " + sortedList3.size());
+            sortedList.print();
+
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+
+        try {
+
+            LinkedList sortedList4 = linkedList.sortByAttribute4(typeTestMountain, gearTest, wheelTest, heightTest, linkedList);
+            System.out.println("Sorted List size by gear, wheel: " + sortedList4.size());
+            sortedList.print();
+
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+
+        try {
+
+            LinkedList sortedList6 = linkedList.sortByAttribute5(typeTestMountain, gearTest, wheelTest, heightTest, colorTest, linkedList);
+            System.out.println("Sorted List size by gear, wheel: " + sortedList6.size());
+            sortedList.print();
+
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+
+        try {
+
+            LinkedList sortedList7 = linkedList.sortByAttribute6(typeTestMountain, gearTest, wheelTest, heightTest, colorTest, constructionMaterial, linkedList);
+            System.out.println("Sorted List size by gear, wheel: " + sortedList7.size());
+            sortedList.print();
+
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+        }
+
+    
         LinkedList linkedList1 = linkedList.sortByAttr2(typeTestMountain, linkedList);
         System.out.println("Sorted List size by mountain bikes: " + linkedList1.size());
 
