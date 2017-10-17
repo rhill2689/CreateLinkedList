@@ -164,7 +164,6 @@ public class LinkedList {
                 curr = curr.next;
                 prev = prev.next;
                 i++;
-                System.out.println("in While: " + i);
             }
 
             if(curr.val < x && curr.next == null){//insert last element
@@ -190,5 +189,21 @@ public class LinkedList {
             curr = curr.next;
         }
         sort.print();
+    }
+
+    public LinkedList sortByAttribute(int gear, int wheel, LinkedList linkedList){
+        LinkedList sort = new LinkedList();
+        Node curr = linkedList.head; //head of original linked list will return new list with only bikes we want
+        System.out.println(curr.val + " " + curr.data.toString());
+        int i =0;
+        while(curr != null){
+            if(curr.data.getGear() == gear && curr.data.getWheelbase() == wheel){
+                //System.out.println("found a match: " + curr.val + " " + curr.data.toString());
+                sort.insertFirst(i, curr.data);  //keep bicycle data from original linked list pass it into new linkedlist
+            }
+            curr = curr.next;
+            i++;
+        }
+        return sort;
     }
 }

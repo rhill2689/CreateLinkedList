@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class ShowBikes {
@@ -8,6 +9,7 @@ public class ShowBikes {
 
         LinkedList linkedList = new LinkedList();
 
+        Scanner scanner = new Scanner(System.in);
         File file1 = new File("./bicycle.txt");
         FileReader fr1 = new FileReader(file1);
         BufferedReader bf1 = new BufferedReader(fr1);
@@ -16,9 +18,9 @@ public class ShowBikes {
         Stream stream =  bf1.lines();
         Object arr[] = stream.toArray();
 
-        System.out.println("arr length: " +arr.length);
+        //System.out.println("arr length: " +arr.length);
 
-        System.out.println("arr: " + arr[0]);
+        //System.out.println("arr: " + arr[0]);
 
 
 
@@ -45,12 +47,28 @@ public class ShowBikes {
           }
 
         //these should match
-        System.out.println("counter: " + i);
-        System.out.println("size " + linkedList.size());
+        //System.out.println("counter: " + i);
+        System.out.println("original size " + linkedList.size());
 
-        //want 2 attributes
 
-        //create test
+        //create test bike
+        int wheelTest = 54;
+        int gearTest =  4;
+
+        //find all bikes that match
+        LinkedList sortedList = linkedList.sortByAttribute(gearTest, wheelTest, linkedList);
+        System.out.println("Sorted List size: " + sortedList.size());
+        //sortedList.print();
+
+        //want 2 attributes from user
+//         System.out.println("Enter wheel size integers only");
+//         int wheelSize = scanner.nextInt();
+//         System.out.println("Enter gear number integers only");
+//         int gear = scanner.nextInt();
+
+
+
+
 
 
     }
