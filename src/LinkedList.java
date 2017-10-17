@@ -225,12 +225,13 @@ public class LinkedList {
 
         LinkedList sort = new LinkedList();
         Node curr = linkedList.head; //need the head of the linkedList you created in the main method and passed into this method
+        int i = 0;
+        
         System.out.println("head: " + curr.val);
         System.out.println("next: " + curr.next.val);
-        int i = 0;
         //need this while loop to loop through the list starting at head node of list passed into this method
         while (curr != null) {
-            if (curr.data.type == type) {
+            if (curr.data.type.contains(type)) {
                 System.out.println("found a match: " + curr.val + " " + curr.data.toString());
 
                 //insert into new list, maintain order using i, and i ++
@@ -245,15 +246,19 @@ public class LinkedList {
     public LinkedList sortByAttribute2(String type, int gear, LinkedList linkedList) {
 
         LinkedList sort = new LinkedList();
-        Node curr = this.head;
+        Node curr = linkedList.head;
         int i = 0;
 
 
         //last method in linkedList class
-        if (curr.data.getType() == type && curr.data.getGear() == gear) {
-            System.out.println("found a match: " + curr.val + " " + curr.data.toString());
+        while (curr != null) {
+            if (curr.data.type.contains(type) && curr.data.getGear() == gear) {
+                System.out.println("found a match: " + curr.val + " " + curr.data.toString());
+                i++;
+                sort.insertFirst(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
+            }
+            curr = curr.next;
             i++;
-            sort.insertFirst(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
         }
         return sort;
     }
@@ -261,15 +266,19 @@ public class LinkedList {
     public LinkedList sortByAttribute3(String type, int gear, int wheelbase, LinkedList linkedList) {
 
         LinkedList sort = new LinkedList();
-        Node curr = this.head;
+        Node curr = linkedList.head;
         int i = 0;
 
 
         //last method in linkedList class
-        if (curr.data.getType() == type && curr.data.getGear() == gear && curr.data.getWheelbase() == wheelbase) {
+        while (curr != null) {
+        if (curr.data.type.contains(type) && curr.data.getGear() == gear && curr.data.getWheelbase() == wheelbase) {
             System.out.println("found a match: " + curr.val + " " + curr.data.toString());
             i++;
             sort.insertFirst(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
+        }
+            curr = curr.next;
+            i++;
         }
         return sort;
     }
@@ -278,15 +287,17 @@ public class LinkedList {
     public LinkedList sortByAttribute4(String type, int gear, int wheelbase, int height, LinkedList linkedList) {
 
         LinkedList sort = new LinkedList();
-        Node curr = this.head;
+        Node curr = linkedList.head;
         int i = 0;
 
-
+        while (curr != null) {
         //last method in linkedList class
-        if (curr.data.getType() == type && curr.data.getGear() == gear && curr.data.getWheelbase() == wheelbase && curr.data.getHeight() == height) {
+        if (curr.data.type.contains(type) && curr.data.getGear() == gear && curr.data.getWheelbase() == wheelbase && curr.data.getHeight() == height) {
             System.out.println("found a match: " + curr.val + " " + curr.data.toString());
             i++;
             sort.insertFirst(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
+        } curr = curr.next;
+            i++;
         }
         return sort;
     }
@@ -294,15 +305,17 @@ public class LinkedList {
     public LinkedList sortByAttribute5(String type, int gear, int wheelbase, int height, String color, LinkedList linkedList) {
 
         LinkedList sort = new LinkedList();
-        Node curr = this.head;
+        Node curr = linkedList.head;
         int i = 0;
 
-
+        while (curr != null) {
         //last method in linkedList class
-        if (curr.data.getType() == type && curr.data.getGear() == gear && curr.data.getWheelbase() == wheelbase && curr.data.getHeight() == height && curr.data.getColor() == color) {
+        if (curr.data.type.contains(type) && curr.data.getGear() == gear && curr.data.getWheelbase() == wheelbase && curr.data.getHeight() == height && curr.data.color.contains(color)) {
             System.out.println("found a match: " + curr.val + " " + curr.data.toString());
             i++;
             sort.insertFirst(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
+        } curr = curr.next;
+            i++;
         }
         return sort;
     }
@@ -310,15 +323,17 @@ public class LinkedList {
     public LinkedList sortByAttribute6(String type, int gear, int wheelbase, int height, String color, String constructionMaterial, LinkedList linkedList) {
 
         LinkedList sort = new LinkedList();
-        Node curr = this.head;
+        Node curr = linkedList.head;
         int i = 0;
 
-
+        while (curr != null) {
         //last method in linkedList class
-        if (curr.data.getType() == type && curr.data.getGear() == gear && curr.data.getWheelbase() == wheelbase && curr.data.getHeight() == height && curr.data.getColor() == color && curr.data.getConstructionMaterial() == constructionMaterial) {
+        if (curr.data.type.contains(type) && curr.data.getGear() == gear && curr.data.getWheelbase() == wheelbase && curr.data.getHeight() == height && curr.data.color.contains(color) && curr.data.constructionMaterial.contains(constructionMaterial)) {
             System.out.println("found a match: " + curr.val + " " + curr.data.toString());
             i++;
             sort.insertFirst(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
+        } curr = curr.next;
+            i++;
         }
         return sort;
     }
