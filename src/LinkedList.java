@@ -191,19 +191,54 @@ public class LinkedList {
         return sort;
     }
 
+    public LinkedList sortByAttr(int gear, int wheel, LinkedList linkedList){
+        LinkedList sort = new LinkedList();
+        Node curr = linkedList.head;
+        int i = 0;
+        while(curr != null){
+            if(curr.data.gear == gear && curr.data.wheelbase == wheel){
+                sort.insertFirst(i, curr.data);
+            }
+            curr = curr.next;
+            i++;
+        }
+
+        return sort;
+    }
+
+    public LinkedList sortByAttr2(String type, LinkedList linkedList){
+        LinkedList sort = new LinkedList();
+        Node curr = linkedList.head;
+        int i = 0;
+        while(curr != null){
+            if(curr.data.type.contains(type)){
+                sort.insertFirst(i, curr.data);
+            }
+            curr = curr.next;
+            i++;
+        }
+
+        return sort;
+    }
+
     public LinkedList sortByAttribute1(String type, LinkedList linkedList) {
 
         LinkedList sort = new LinkedList();
-        Node curr = this.head;
+        Node curr = linkedList.head; //need the head of the linkedList you created in the main method and passed into this method
+        System.out.println("head: " + curr.val);
+        System.out.println("next: " + curr.next.val);
         int i = 0;
+        //need this while loop to loop through the list starting at head node of list passed into this method
+        while (curr != null) {
+            if (curr.data.type == type) {
+                System.out.println("found a match: " + curr.val + " " + curr.data.toString());
 
-
-        //last method in linkedList class
-        if (curr.data.getType() == type) {
-            System.out.println("found a match: " + curr.val + " " + curr.data.toString());
+                //insert into new list, maintain order using i, and i ++
+                sort.insertFirst(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
+            }
+            curr = curr.next;
             i++;
-            sort.insertFirst(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
-        }
+        } //end while
         return sort;
     }
 

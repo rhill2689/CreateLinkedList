@@ -54,11 +54,27 @@ public class ShowBikes {
         //create test bike
         int wheelTest = 54;
         int gearTest =  4;
+        String typeTestMountain = "mountain"; //had to change from mountain_bike to mountain i think the _ is messing with the comparison
+        String typeTestRace =   "race";  //race_bike
+        String typeTestStreet = "street"; //street_bike
+        String colorTest = "black";
 
         //find all bikes that match
-        LinkedList sortedList = linkedList.sortByAttribute(gearTest, wheelTest, linkedList);
-        System.out.println("Sorted List size: " + sortedList.size());
-        //sortedList.print();
+        LinkedList sortedList = linkedList.sortByAttr(gearTest, wheelTest, linkedList);
+        System.out.println("Sorted List size by gear, wheel: " + sortedList.size());
+
+        LinkedList linkedList1 = linkedList.sortByAttr2(typeTestMountain, linkedList);
+        System.out.println("Sorted List size by mountain bikes: " + linkedList1.size());
+
+        LinkedList linkedList2 = linkedList.sortByAttr2(typeTestRace, linkedList);
+        System.out.println("Sorted List size by race bikes: " + linkedList1.size());
+
+        LinkedList linkedList3 = linkedList.sortByAttr2(typeTestStreet, linkedList);
+        System.out.println("Sorted List size by street bikes: " + linkedList1.size());
+
+
+//        System.out.println("full list");
+         // linkedList.print();
 
         //want 2 attributes from user
 //         System.out.println("Enter wheel size integers only");
