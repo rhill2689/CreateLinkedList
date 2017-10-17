@@ -232,7 +232,6 @@ public class LinkedList {
         //need this while loop to loop through the list starting at head node of list passed into this method
         while (curr != null) {
             if (curr.data.type.contains(type)) {
-                System.out.println("found a match: " + curr.val + " " + curr.data.toString());
 
                 //insert into new list, maintain order using i, and i ++
                 sort.insertFirst(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
@@ -253,7 +252,6 @@ public class LinkedList {
         //last method in linkedList class
         while (curr != null) {
             if (curr.data.type.contains(type) && curr.data.getGear() == gear) {
-                System.out.println("found a match: " + curr.val + " " + curr.data.toString());
                 sort.insertFirst(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
             }
             curr = curr.next;
@@ -272,7 +270,6 @@ public class LinkedList {
         //last method in linkedList class
         while (curr != null) {
         if (curr.data.type.contains(type) && curr.data.getGear() == gear && curr.data.getWheelbase() == wheelbase) {
-            System.out.println("found a match: " + curr.val + " " + curr.data.toString());
             sort.insertFirst(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
         }
             curr = curr.next;
@@ -291,7 +288,6 @@ public class LinkedList {
         while (curr != null) {
         //last method in linkedList class
         if (curr.data.type.contains(type) && curr.data.getGear() == gear && curr.data.getWheelbase() == wheelbase && curr.data.getHeight() == height) {
-            System.out.println("found a match: " + curr.val + " " + curr.data.toString());
             sort.insertFirst(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
         } curr = curr.next;
             i++;
@@ -308,7 +304,6 @@ public class LinkedList {
         while (curr != null) {
         //last method in linkedList class
         if (curr.data.type.contains(type) && curr.data.getGear() == gear && curr.data.getWheelbase() == wheelbase && curr.data.getHeight() == height && curr.data.color.contains(color)) {
-            System.out.println("found a match: " + curr.val + " " + curr.data.toString());
             sort.insertFirst(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
         } curr = curr.next;
             i++;
@@ -325,7 +320,6 @@ public class LinkedList {
         while (curr != null) {
         //last method in linkedList class
         if (curr.data.type.contains(type) && curr.data.getGear() == gear && curr.data.getWheelbase() == wheelbase && curr.data.getHeight() == height && curr.data.color.contains(color) && curr.data.constructionMaterial.contains(constructionMaterial)) {
-            System.out.println("found a match: " + curr.val + " " + curr.data.toString());
             sort.insertFirst(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
         } curr = curr.next;
             i++;
