@@ -8,7 +8,6 @@ public class ShowBikes {
 
         LinkedList linkedList = new LinkedList();
 
-        //1 upload file to file stream
         File file1 = new File("./bicycle.txt");
         FileReader fr1 = new FileReader(file1);
         BufferedReader bf1 = new BufferedReader(fr1);
@@ -37,7 +36,6 @@ public class ShowBikes {
                           splitStr[11]
                   );
                   i++;
-                  //System.out.println("bike: " + bicycle);
                   linkedList.insertFirst(i, bicycle);
               }
 
@@ -46,71 +44,14 @@ public class ShowBikes {
               System.out.println(e.toString());
           }
 
-
-
-
-
-//        try {
-//            while (bf1.readLine() != null) {
-//                //2 create Bicycle ohbject for eacb line
-//                String s = bf1.readLine();
-//                String[] splitStr = s.split("\\s+");
-//                System.out.println(Arrays.toString(splitStr));
-//                Bicycle bicycle = new Bicycle(
-//                        splitStr[1],
-//                        Integer.parseInt(splitStr[3]),
-//                        Integer.parseInt(splitStr[5]),
-//                        Integer.parseInt(splitStr[7]),
-//                        splitStr[9],
-//                        splitStr[11]
-//                );
-//
-//                linkedList.insertFirst(i, bicycle);
-//                i++;
-//            }//end while
-////            while (bf2.readLine() != null) {
-////                //2 create Bicycle ohbject for eacb line
-////                String s = bf1.readLine();
-////                String[] splitStr = s.split("\\s+");
-////                Bicycle bicycle = new Bicycle(
-////                        splitStr[1],
-////                        Integer.parseInt(splitStr[3]),
-////                        Integer.parseInt(splitStr[5]),
-////                        Integer.parseInt(splitStr[7]),
-////                        splitStr[9],
-////                        splitStr[11]
-////                );
-////
-////                linkedList.insertFirst(i, bicycle);
-////                i++;
-////            }//end while
-////            while (bf3.readLine() != null) {
-////                //2 create Bicycle ohbject for eacb line
-////                String s = bf1.readLine();
-////                String[] splitStr = s.split("\\s+");
-////                Bicycle bicycle = new Bicycle(
-////                        splitStr[1],
-////                        Integer.parseInt(splitStr[3]),
-////                        Integer.parseInt(splitStr[5]),
-////                        Integer.parseInt(splitStr[7]),
-////                        splitStr[9],
-////                        splitStr[11]
-////                );
-////
-////                linkedList.insertFirst(i, bicycle);
-////                i++;
-////            }//end while
-//
-//        }
-//        catch(Exception e){
-//            System.out.println(e.toString());
-//        }
-
-        //linked list changes or sorting below
-        System.out.print("counter: " + i);
+        //these should match
+        System.out.println("counter: " + i);
         System.out.println("size " + linkedList.size());
 
         //want 2 attributes
+
+        //create test
+
 
     }
 }
