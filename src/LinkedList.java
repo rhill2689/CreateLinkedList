@@ -169,6 +169,109 @@ public class LinkedList {
         }
     }
 
+    public void insertInOrder1(int x, Bicycle bicycle) {
+        Node n = new Node(x, bicycle);
+        if (isEmpty()) {//nothing in list
+            head = n;
+            n.next = null;
+            return;
+        }
+
+        //insert to head
+        //value being inserted is less than what is already there
+        Node prev = head;
+        if (prev.val < n.val) {
+            n.next = prev;
+            head = n;
+            return;
+        }
+
+        //one value in list and its less than value being inserted
+        if (prev.val > n.val && prev.next == null) {
+            prev.next = n;
+            n.next = null;
+            return;
+        }
+
+        Node curr = head.next;
+        //insert between first and second nodes
+        if (prev.val > n.val && curr.val > n.val) {
+            prev.next = n;
+            n.next = curr;
+            return;
+        }
+
+        if (curr.val > n.val) {
+            int i = 0;
+            while (curr.val > x && curr.next != null) {//find where curr.val not < x
+                curr = curr.next;
+                prev = prev.next;
+                i++;
+            }
+
+            if (curr.val > x && curr.next == null) {//insert last element
+                curr.next = n;
+                curr = curr.next;
+                prev = prev.next;
+            } else {//insert in list
+                prev.next = n;
+                n.next = curr;
+            }
+        }
+    }
+
+    public void insertInOrder2(int x, Bicycle bicycle) {
+        Node n = new Node(x, bicycle);
+        if (isEmpty()) {//nothing in list
+            head = n;
+            n.next = null;
+            return;
+        }
+
+        //insert to head
+        //value being inserted is less than what is already there
+        Node prev = head;
+        if (prev.val > n.val) {
+            n.next = prev;
+            head = n;
+            return;
+        }
+
+        //one value in list and its less than value being inserted
+        if (prev.val < n.val && prev.next == null) {
+            prev.next = n;
+            n.next = null;
+            return;
+        }
+
+        Node curr = head.next;
+        //insert between first and second nodes
+        if (prev.val < n.val && curr.val > n.val) {
+            prev.next = n;
+            n.next = curr;
+            return;
+        }
+
+        if (curr.val < n.val) {
+            int i = 0;
+            while (curr.val < x && curr.next != null) {//find where curr.val not < x
+                curr = curr.next;
+                prev = prev.next;
+                i++;
+            }
+
+            if (curr.val > x && curr.next == null) {//insert last element
+                curr.next = n;
+                curr = curr.next;
+                prev = prev.next;
+            } else {//insert in list
+                prev.next = n;
+                n.next = curr;
+            }
+        }
+
+    }
+
     //sort the list
     public LinkedList sortList() {
         LinkedList sort = new LinkedList();
@@ -176,7 +279,7 @@ public class LinkedList {
         //user insertInOrder to sort the list
         Node curr = this.head;
         while (curr != null) {
-            sort.insertInOrder(curr.val, curr.data);
+            sort.insertInOrder1(curr.val, curr.data);
             curr = curr.next;
         }
         //sort.print();
@@ -189,7 +292,7 @@ public class LinkedList {
         int i = 0;
         while(curr != null){
             if(curr.data.gear == gear && curr.data.wheelbase == wheel){
-                sort.insertInOrder(i, curr.data);
+                sort.insertInOrder1(i, curr.data);
                 i++;
             }
             curr = curr.next;
@@ -204,7 +307,7 @@ public class LinkedList {
         int i = 0;
         while(curr != null){
             if(curr.data.type.contains(type)){
-                sort.insertInOrder(i, curr.data);
+                sort.insertInOrder1(i, curr.data);
                 i++;
             }
             curr = curr.next;
@@ -222,7 +325,7 @@ public class LinkedList {
         while (curr != null) {
             if (curr.data.type.contains(type)) {
                 //insert into new list, maintain order using i, and i ++
-                sort.insertInOrder(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
+                sort.insertInOrder1(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
                 i++;
             }
             curr = curr.next;
@@ -238,7 +341,7 @@ public class LinkedList {
         //last method in linkedList class
         while (curr != null) {
             if (curr.data.type.contains(type) && curr.data.getGear() == gear) {
-                sort.insertInOrder(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
+                sort.insertInOrder1(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
                 i++;
             }
             curr = curr.next;
@@ -255,7 +358,7 @@ public class LinkedList {
         //last method in linkedList class
         while (curr != null) {
             if (curr.data.type.contains(type) && curr.data.getGear() == gear && curr.data.getWheelbase() == wheelbase) {
-                sort.insertInOrder(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
+                sort.insertInOrder1(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
                 i++;
             }
             curr = curr.next;
@@ -294,7 +397,7 @@ public class LinkedList {
                     && curr.data.getWheelbase() == wheelbase
                     && curr.data.getHeight() == height
                     && curr.data.color.contains(color)) {
-                sort.insertInOrder(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
+                sort.insertInOrder2(i, curr.data); //keep bicycle data from original linked list pass it into new linkedlist
                 i++;
             }
             curr = curr.next;
