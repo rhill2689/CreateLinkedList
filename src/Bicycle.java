@@ -69,13 +69,12 @@ public class Bicycle {
 
     @Override
     public String toString() {
-        return "Bicycle{" +
-                "type='" + type + '\'' +
-                ", gear=" + gear +
-                ", wheelbase=" + wheelbase +
-                ", height=" + height +
-                ", color='" + color + '\'' +
-                ", constructionMaterial='" + constructionMaterial + '\'' +
-                '}';
+        return
+                "-type " + type +
+                " -gear " + gear +
+                " -wheelbase " + wheelbase +
+                " -height " + height +
+                " -color " + color +
+                " -construction_material " + constructionMaterial;
     }
 }

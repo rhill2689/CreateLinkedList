@@ -301,7 +301,7 @@ public class LinkedList {
         return sort;
     }
 
-    public LinkedList sortByAttr2(String type, LinkedList linkedList){
+     public LinkedList sortByAttr2(String type, LinkedList linkedList){
         LinkedList sort = new LinkedList();
         Node curr = linkedList.head;
         int i = 0;
